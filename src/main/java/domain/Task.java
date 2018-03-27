@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -35,9 +36,10 @@ public class Task {
 		
 	}
 
-	public Task(Long id, List<Employee> assignedEmployees, Manager manager, boolean completed, String description) {
-		this.id = id;
-		this.assignedEmployees = assignedEmployees;
+
+	public Task(String description, Manager manager,Employee... employees) {
+		
+		assignedEmployees.addAll(Arrays.asList(employees));
 		this.manager = manager;
 		this.completed = completed;
 		this.description = description;

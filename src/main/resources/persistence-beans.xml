@@ -1,0 +1,63 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context='http://www.springframework.org/schema/context'
+   xmlns:tx='http://www.springframework.org/schema/tx'
+   xsi:schemaLocation='http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context-3.1.xsd
+  http://www.springframework.org/schema/tx
+  http://www.springframework.org/schema/tx/spring-tx-3.1.xsd'>
+  
+  <context:annotation-config />
+  
+  <context:component-scan base-package='org.timesheet.service.impl' />
+  
+  <tx:annotation-driven />
+  
+  <bean id='dataSource'
+  class='org.springframework.jdbc.datasource.DriverManagerDataSource'>
+  <property name='driverClassName'
+   value='com.mysql.jdbc.jdbc2.optional.MysqlDataSource' />
+  <property name='url' value='jdbc:mysql://localhost/timesheet' />
+  <property name='username' value='admin' />
+  <property name='password' value='password' />
+ </bean>
+ 
+ <!-- configure hibernate session factory -->
+ <bean id='sessionFactory'
+  class='org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean'>
+  <property name='dataSource' ref='dataSource' />
+  <property name='annotatedClasses' >
+   <list>
+    <value>/timesheet/src/main/java/domain/Employee.java</value>
+    <value>/timesheet/src/main/java/domain/Manager.java</value>
+    <value>/timesheet/src/main/java/domain/Task.java</value>
+    <value>/timesheet/src/main/java/domain/Timesheet.java</value>
+   </list>
+  </property>
+  <property name='hibernateProperties'>
+   <props>
+    <prop key='dialect'>org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+    <prop key='hibernate.show_sql'>true</prop>
+    <!-- for creating tables -->
+    <prop key='hibernate.hbm2ddl.auto'>create</prop>
+   </props>
+  </property>
+ </bean>
+ 
+ <bean id='transactionManager'
+      class='org.springframework.orm.hibernate3.HibernateTransactionManager'>
+    <property name='sessionFactory' ref='sessionFactory' />
+</bean>
+
+<bean id='jdbcTemplate'
+        class='org.springframework.jdbc.core.simple.SimpleJdbcTemplate'>
+    <constructor-arg type='javax.sql.DataSource' ref='dataSource'/>
+</bean>
+ 
+   </beans>
+   
+   

@@ -18,8 +18,9 @@ public class Manager {
 	public Manager() {
 		
 	}
-	public Manager(Long id, String name) {
-		this.id = id;
+	
+	public Manager( String name) {
+		
 		this.name = name;
 	}
 	public Long getId() {

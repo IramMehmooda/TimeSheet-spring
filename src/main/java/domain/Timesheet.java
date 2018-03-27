@@ -29,9 +29,7 @@ public class Timesheet {
 		
 	}
 	
-	public Timesheet(Long id, Employee who, Task task, Integer hours) {
-		super();
-		this.id = id;
+	public Timesheet(Employee who, Task task, Integer hours) {
 		this.who = who;
 		this.task = task;
 		this.hours = hours;
