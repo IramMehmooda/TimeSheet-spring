@@ -1,0 +1,182 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.timesheet</groupId>
+  <artifactId>timesheet</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>timesheet</name>
+  <url>http://maven.apache.org</url>
+  
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+<!-- Maven has all versions of all dependencies/jars in maven repositories so if we write it here, it gets mapped with those in repositories -->
+  
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+  <dependency>
+
+ <groupId>org.hibernate</groupId>
+
+ <artifactId>hibernate-entitymanager</artifactId>
+
+ <version>3.6.8.Final</version>
+
+</dependency>
+
+<!-- validation -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+        </dependency>
+
+<!-- AspectJ -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>[1.6.11,]</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>[1.6.11,]</version>
+        </dependency>
+
+              <dependency>
+
+ <groupId>mysql</groupId>
+ <artifactId>mysql-connector-java</artifactId>
+
+ <version>5.1.6</version>
+</dependency>
+
+ 
+
+<!-- spring framework -->
+
+<dependency>
+
+ <groupId>org.springframework</groupId>
+
+ <artifactId>spring-context</artifactId>
+
+ <version>[3.2.0.RELEASE,]</version>
+
+</dependency>
+
+              <dependency>
+
+ <groupId>org.springframework</groupId>
+
+ <artifactId>spring-test</artifactId>
+
+ <version>[3.2.0.RELEASE,]</version>
+
+</dependency>
+
+<dependency>
+
+ <groupId>org.springframework</groupId>
+
+ <artifactId>spring-jdbc</artifactId>
+
+ <version>[3.2.0.RELEASE,]</version>
+
+</dependency>
+
+<dependency>
+
+ <groupId>org.springframework</groupId>
+
+ <artifactId>spring-orm</artifactId>
+
+ <version>5.0.3.RELEASE</version>
+
+</dependency>
+
+<dependency>
+
+ <groupId>org.springframework</groupId>
+
+ <artifactId>spring-webmvc</artifactId>
+
+ <version>[3.2.0.RELEASE,]</version>
+
+</dependency>
+
+<dependency>
+
+ <groupId>org.springframework</groupId>
+
+ <artifactId>spring-web</artifactId>
+
+ <version>[3.2.0.RELEASE,]</version>
+
+</dependency>
+
+<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>[3.2.0.RELEASE,]</version>
+		</dependency>
+
+<dependency>
+    <groupId>jstl</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>[3.0.1,]</version>
+</dependency>
+
+<dependency>
+    <groupId>org.hsqldb</groupId>
+    <artifactId>hsqldb</artifactId>
+    <version>2.4.0</version>
+    <scope>test</scope>
+</dependency>
+  <!-- https://mvnrepository.com/artifact/org.springframework.plugin/spring-plugin-core -->
+<dependency>
+    <groupId>org.springframework.plugin</groupId>
+    <artifactId>spring-plugin-core</artifactId>
+    <version>1.2.0.RELEASE</version>
+</dependency>
+
+  </dependencies>
+  
+  <!-- Tomcat plugin -->
+  <build>
+<plugins>
+    <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    
+                    <configuration>
+                        <url>http://localhost:9967/welcome</url>
+                        <contextReloadable>true</contextReloadable>
+                    </configuration>
+                </plugin>
+</plugins>
+</build>  
+
+
+</project>
